@@ -1,0 +1,28 @@
+openapi: "3.0.0"
+info:
+  title: Your API Title
+  version: "1.0.0"
+paths:
+  /your-endpoint:
+    get:
+      summary: Get Weather Data
+      description: |
+        This endpoint retrieves weather data by district. 
+
+        <div id="map" style="height: 400px;"></div>
+
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+        <script>
+          // Initialize map
+          var map = L.map('map').setView([51.505, -0.09], 13);
+
+          // Add tile layer (e.g., OpenStreetMap)
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          }).addTo(map);
+
+          // Add marker
+          L.marker([51.5, -0.09]).addTo(map)
+            .bindPopup('A sample popup!')
+            .openPopup();
+        </script>
